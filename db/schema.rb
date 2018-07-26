@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20180223220227) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -20,8 +23,8 @@ ActiveRecord::Schema.define(version: 20180223220227) do
 
   create_table "comments", force: :cascade do |t|
     t.text "body"
-    t.integer "user_id"
-    t.integer "recipe_id"
+    t.bigint "user_id"
+    t.bigint "recipe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["recipe_id"], name: "index_comments_on_recipe_id"
@@ -36,8 +39,8 @@ ActiveRecord::Schema.define(version: 20180223220227) do
 
   create_table "ratings", force: :cascade do |t|
     t.integer "rating"
-    t.integer "user_id"
-    t.integer "recipe_id"
+    t.bigint "user_id"
+    t.bigint "recipe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["recipe_id"], name: "index_ratings_on_recipe_id"
@@ -45,8 +48,8 @@ ActiveRecord::Schema.define(version: 20180223220227) do
   end
 
   create_table "recipe_ingredients", force: :cascade do |t|
-    t.integer "recipe_id"
-    t.integer "ingredient_id"
+    t.bigint "recipe_id"
+    t.bigint "ingredient_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "quantity"
@@ -58,8 +61,8 @@ ActiveRecord::Schema.define(version: 20180223220227) do
   create_table "recipes", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.integer "user_id"
-    t.integer "category_id"
+    t.bigint "user_id"
+    t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_file_name"
@@ -92,4 +95,12 @@ ActiveRecord::Schema.define(version: 20180223220227) do
     t.index ["uid"], name: "index_users_on_uid"
   end
 
+  add_foreign_key "comments", "recipes"
+  add_foreign_key "comments", "users"
+  add_foreign_key "ratings", "recipes"
+  add_foreign_key "ratings", "users"
+  add_foreign_key "recipe_ingredients", "ingredients"
+  add_foreign_key "recipe_ingredients", "recipes"
+  add_foreign_key "recipes", "categories"
+  add_foreign_key "recipes", "users"
 end
