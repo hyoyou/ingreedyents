@@ -1,0 +1,163 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* universal */
+
+body {
+  padding: 50px;
+  background-image: url("wood-texture-dark-1599x1200.jpg");
+  opacity: 0.9;
+  font-family: 'Raleway', sans-serif;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #0c0b05;
+}
+
+h2 {
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: #0c0b05;
+}
+
+p {
+  font-size: 1em;
+  line-height: 1.7em;
+}
+
+a {
+  color: #0c0b05;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.page.current {
+  color: #ff9900;
+}
+
+a:hover {
+  color: #ff9900;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  height: 150px;
+  color: #0c0b05;
+}
+
+.navbar-default {
+  background-color: #0c0b05;
+  opacity: 0.8;
+  font-family: 'Fjalla One', sans-serif;
+  color: #ffebcc;
+  border: none;
+  padding: 15px 70px;
+}
+
+.navbar-nav > a, .nav.space > a, .navbar-brand > a {
+  color: #ff9900;
+}
+
+.navbar-brand {
+  transform: translateX(-50%);
+  font-size: 60px;
+  font-family: 'Lily Script One', cursive;
+  left: 50%;
+  position: absolute;
+}
+
+.nav.space{
+  display: inline-block;
+  padding: 0px 10px;
+}
+
+.nav a:hover {
+  font-weight: bold;
+}
+
+#recipes-container {
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+  padding: 30px;
+  background-color: white;
+  opacity: 0.8;
+  color: #0c0b05;
+}
+
+.img-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.root-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  opacity: 0.75;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.centered > a {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-default {
+  color: #fff;
+  background-color: #ff9900;
+  font-size: 20px;
+  height:40px;
+  width:200px
+}
+
+.btn-submit, .next-recipe {
+  color: #0c0b05;
+  background-color: #ff9900;
+  font-size: 15px;
+  height:25px;
+  width:180px
+}

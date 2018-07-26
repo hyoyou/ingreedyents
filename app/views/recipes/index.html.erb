@@ -1,0 +1,26 @@
+<h1>Recipes</h1>
+
+<h2><%= link_to "View by Category", categories_path %></h2>
+
+<div class="container">
+  <div class="row">
+    <% @recipes.each do |recipe| %>
+      <div class="column">
+      <h3><%= link_to recipe.name, recipe_path(recipe) %></h3><br>
+      <% key_ingredient_array = recipe.recipe_ingredients.to_a %>
+      <% key_ingredient_array.each do |ingredient| %>
+        <% if ingredient.key_ingredient == true %>
+          <% key_ingredient = Ingredient.find(ingredient.ingredient_id) %>
+          <strong>Key Ingredient:</strong> <%= key_ingredient.name %><br>
+        <% end %>
+      <% end %>
+      <strong>Category:</strong> <%= recipe.category.name %><br>
+      </div>
+    <% end %>
+  </div>
+</div>
+<br><br>
+
+<% if current_user %>
+  <%= link_to "Add New Recipe", new_recipe_path %>
+<% end %>
