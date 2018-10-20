@@ -6,4 +6,8 @@ class ApplicationController < ActionController::Base
     request.env['omniauth.origin'] || root_path
   end
 
+  def policy
+    render 'layouts/policy'
+  end
+
 end
